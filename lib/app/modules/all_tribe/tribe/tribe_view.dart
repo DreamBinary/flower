@@ -203,13 +203,16 @@ class ExistTribe extends StatelessWidget {
                       radius: 40,
                       backgroundColor: Colors.white,
                       backgroundImage: AssetImage("assets/images/icon.png")),
+                  const SizedBox(width: 5),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("部落名称 : ${tribeInfo.name}",
+                      Text("部落名称 : 木雕爱好小队",
                           style: AppTS.fontSize16
                               .copyWith(color: AppColors.darkRed)),
                       const SizedBox(height: 5),
-                      Text("部落简介 : ${tribeInfo.description}",
+                      Text("部落简介 : 探索木雕的小白",
+                          maxLines: 1,
                           style: AppTS.fontSize14
                               .copyWith(color: AppColors.darkRed)),
                     ],
@@ -225,27 +228,29 @@ class ExistTribe extends StatelessWidget {
                   )
                 ],
               ),
-              LayoutBuilder(
-                builder: (_, constraints) {
-                  var width = constraints.constrainWidth() / 2.1;
-                  var height = width + width / 5;
-                  return Wrap(
-                    children: tribeInfo.members
-                        .map((user) => SizedBox(
-                              width: width,
-                              height: height,
-                              child: ImageNameItem(
-                                  size: constraints.constrainWidth() / 2.1,
-                                  name: user.nickname ?? "",
-                                  image: NetworkImage(user.avatar == null
-                                      ? Url.avatar
-                                      : Url.avatar + user.avatar!),
-                                  color: Colors.grey),
-                            ))
-                        .toList(),
-                  );
-                },
-              ),
+              Image.asset("assets/images/member.png", fit: BoxFit.fill,)
+
+              // LayoutBuilder(
+              //   builder: (_, constraints) {
+              //     var width = constraints.constrainWidth() / 2.1;
+              //     var height = width + width / 5;
+              //     return Wrap(
+              //       children: tribeInfo.members
+              //           .map((user) => SizedBox(
+              //                 width: width,
+              //                 height: height,
+              //                 child: ImageNameItem(
+              //                     size: constraints.constrainWidth() / 2.1,
+              //                     name: user.nickname ?? "",
+              //                     image: NetworkImage(user.avatar == null
+              //                         ? Url.avatar
+              //                         : Url.avatar + user.avatar!),
+              //                     color: Colors.grey),
+              //               ))
+              //           .toList(),
+              //     );
+              //   },
+              // ),
             ],
             bgPath: 'assets/images/bg_dialog2.png',
           ),

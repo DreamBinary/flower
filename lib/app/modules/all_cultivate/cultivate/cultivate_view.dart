@@ -55,38 +55,37 @@ class _CultivatePageState extends State<CultivatePage> {
                         onPressed: () => {
                           showDialog(
                             context: context,
-                            builder: (context) => Dialog(
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: AppColors.darkYellow,
-                                            width: 2),
-                                        image: const DecorationImage(
-                                            image: AssetImage(
-                                                "assets/images/bg_dialog4.png"),
-                                            fit: BoxFit.fill)),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              top: 30.h, bottom: 15.h),
-                                          child: Text(
-                                            "雨露浇灌",
-                                            style: AppTS.fontSize24.copyWith(
-                                                color: AppColors.darkRed),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 10, horizontal: 30),
-                                          child: Text(
-                                            "雨露值-1，浇灌成功，花儿正在努力生长~",
-                                            style: AppTS.fontSize14,
-                                          ),
-                                        ),
-                                      ],
-                                    ))),
+                            builder: (context) => MyDialog(
+                              title: AppString.cultivateBtn,
+                              bgPath: "assets/images/bg_dialog1.png",
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: const [
+                                  RainWaterItem(
+                                    name: "茉莉花",
+                                    progress: "萌芽中",
+                                    state: "需要浇水",
+                                    imagePath: "assets/images/flower2.png",
+                                  ),
+                                  RainWaterItem(
+                                    name: "石榴花",
+                                    progress: "萌芽中",
+                                    state: "良好",
+                                    imagePath: "assets/images/flower1.png",
+                                  ),
+                                  RainWaterItem(
+                                    name: "桂花",
+                                    progress: "已开花",
+                                    state: "良好",
+                                    imagePath: "assets/images/flower0.png",
+                                  ),
+                                  // Expanded(child: CultivatingItem()),
+                                  // Expanded(child: CultivatingItem()),
+                                  // Expanded(child: CultivatingItem()),
+                                ],
+                              ),
+                            ),
                           ),
                         },
                       ),
@@ -274,38 +273,22 @@ class _CultivatePageState extends State<CultivatePage> {
               child: BorderButton(
                 onPressed: () {
                   showDialog(
-                    context: context,
-                    builder: (context) => MyDialog(
-                      title: AppString.cultivateBtn,
-                      bgPath: "assets/images/bg_dialog1.png",
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          RainWaterItem(
-                            name: "茉莉花",
-                            progress: "萌芽中",
-                            state: "需要浇水",
-                            imagePath: "assets/images/flower2.png",
-                          ),
-                          RainWaterItem(
-                            name: "石榴花",
-                            progress: "萌芽中",
-                            state: "良好",
-                            imagePath: "assets/images/flower1.png",
-                          ),
-                          RainWaterItem(
-                            name: "桂花",
-                            progress: "已开花",
-                            state: "良好",
-                            imagePath: "assets/images/flower0.png",
-                          ),
-                          // Expanded(child: CultivatingItem()),
-                          // Expanded(child: CultivatingItem()),
-                          // Expanded(child: CultivatingItem()),
-                        ],
-                      ),
-                    ),
-                  );
+                      context: context,
+                      builder: (context) => Dialog(
+                            backgroundColor: Colors.transparent,
+                            child: Container(
+                              height: 650.h,
+                              width: 400.w,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: AppColors.darkYellow, width: 2),
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/flower.png"),
+                                      fit: BoxFit.fill)),
+                              child: const SizedBox(),
+                            ),
+                          ));
                 },
                 child: Text(
                   AppString.cultivateBtn,
@@ -462,41 +445,78 @@ class RainWaterItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (_, constraints) {
       debugPrint(constraints.toString());
-      return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: AppColors.cultivatingBg,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Material(
-              elevation: 10,
-              shape: const CircleBorder(),
+      return InkWell(
+        onTap: () => {
+          showDialog(
+            context: context,
+            builder: (context) => Dialog(
               child: Container(
-                height: constraints.constrainWidth() * 0.3,
-                width: constraints.constrainWidth() * 0.3,
                 decoration: BoxDecoration(
-                    color: AppColors.background,
-                    image: DecorationImage(
-                        image: AssetImage(imagePath), fit: BoxFit.contain),
-                    shape: BoxShape.circle),
+                    border: Border.all(color: AppColors.darkYellow, width: 2),
+                    image: const DecorationImage(
+                        image: AssetImage("assets/images/bg_dialog4.png"),
+                        fit: BoxFit.fill)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 30.h, bottom: 15.h),
+                      child: Text(
+                        "雨露浇灌",
+                        style:
+                            AppTS.fontSize24.copyWith(color: AppColors.darkRed),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 30),
+                      child: Text(
+                        "雨露值-1，浇灌成功，花儿正在努力生长~",
+                        style: AppTS.fontSize14,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            DefaultTextStyle(
-              style: AppTS.fontSize18.copyWith(color: Colors.white),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("花名 : " + name, maxLines: 1),
-                  Text("生长进度 : " + progress, maxLines: 1),
-                  Text("当前状态 : " + state, maxLines: 1),
-                ],
+          )
+        },
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: AppColors.cultivatingBg,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Material(
+                elevation: 10,
+                shape: const CircleBorder(),
+                child: Container(
+                  height: constraints.constrainWidth() * 0.3,
+                  width: constraints.constrainWidth() * 0.3,
+                  decoration: BoxDecoration(
+                      color: AppColors.background,
+                      image: DecorationImage(
+                          image: AssetImage(imagePath), fit: BoxFit.contain),
+                      shape: BoxShape.circle),
+                ),
               ),
-            ),
-          ],
+              DefaultTextStyle(
+                style: AppTS.fontSize18.copyWith(color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("花名 : " + name, maxLines: 1),
+                    Text("生长进度 : " + progress, maxLines: 1),
+                    Text("当前状态 : " + state, maxLines: 1),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       );
     });

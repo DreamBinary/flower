@@ -76,7 +76,7 @@ class _MinePageState extends State<MinePage> {
                     style: AppTS.fontSize16,
                   ),
                 ),
-                MyCard(AppColors.grey,
+                MyCard(const Color(0xfff6f1e6),
                     width: 285.w,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -86,22 +86,22 @@ class _MinePageState extends State<MinePage> {
                           Row(
                             children: [
                               MyCard(
-                                Colors.white,
+                                Color(0xffBDA67D),
                                 height: 48.h,
                                 width: 118.w,
                                 child: Text(AppString.myInfo,
-                                    style: AppTS.fontSize22),
+                                    style: AppTS.fontSize22.copyWith(color: Color(0xff743C4B))),
                               ),
                             ],
                           ),
-                          MyCard(Colors.white,
+                          MyCard(Color(0xffF6F1E6),
                               height: 156.h,
                               width: 240.w,
                               child: const SizedBox(height: 200, width: 200)),
                           Row(
                             children: [
                               Expanded(
-                                  child: MyCard(Colors.white,
+                                  child: MyCard(Color(0xffBDA67D),
                                       height: 170, width: 107, onPressed: () {
                                 //todo
                               },
@@ -109,21 +109,21 @@ class _MinePageState extends State<MinePage> {
                                           style: AppTS.fontSize20))),
                               Column(
                                 children: [
-                                  MyCard(Colors.white,
+                                  MyCard(Color(0xffF6F1E6),
                                       height: 51.h,
                                       width: 120.w, onPressed: () {
                                     //todo
                                   },
                                       child: Text(AppString.myWork,
                                           style: AppTS.fontSize18)),
-                                  MyCard(Colors.white,
+                                  MyCard(Color(0xffF6F1E6),
                                       height: 51.h,
                                       width: 120.w, onPressed: () {
                                     //todo
                                   },
                                       child: Text(AppString.mySeed,
                                           style: AppTS.fontSize18)),
-                                  MyCard(Colors.white,
+                                  MyCard(Color(0xffF6F1E6),
                                       height: 51.h,
                                       width: 120.w, onPressed: () {
                                     //todo

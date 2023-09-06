@@ -97,15 +97,15 @@ class BrowsePage extends StatelessWidget {
         toolbarHeight: 0,
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-          "assets/images/bg_buy_page.png",
-          fit: BoxFit.cover,
-        )),
+              "assets/images/bg_buy_page.png",
+              fit: BoxFit.cover,
+            )),
       ),
       SliverList(
         delegate: SliverChildListDelegate(titles
             .asMap()
             .map((key, value) =>
-                MapEntry(key, BuyRow(value, imagePath[key], key != 0)))
+            MapEntry(key, BuyRow(value, imagePath[key], key != 0)))
             .values
             .toList()),
       ),
@@ -128,15 +128,15 @@ class BuyRow extends StatelessWidget {
         children: [
           hasDivider
               ? const Divider(
-                  height: 1,
-                  thickness: 2,
-                  indent: 10,
-                  endIndent: 10,
-                )
+            height: 1,
+            thickness: 2,
+            indent: 10,
+            endIndent: 10,
+          )
               : const SizedBox(),
           Padding(
             padding:
-                const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 10),
+            const EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 10),
             child: Row(
               children: [
                 Text(
@@ -153,35 +153,31 @@ class BuyRow extends StatelessWidget {
                   size: 18,
                 )
               ],
-              ListView.separated(
-              padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20),
-              scrollDirection: Axis.horizontal,
-              itemCount: items.length,
-              itemBuilder: (context, index) => Card(
-                shape: RoundedRectangleBorder(
-                    side:
-                    const BorderSide(color: AppColors.darkYellow, width: 2),
-                    borderRadius: BorderRadius.circular(15)),
-                clipBehavior: Clip.hardEdge,
-                elevation: 10,
-                child: SizedBox(
-                  height: 90.h,
-                  width: 145.w,
-                  child: Image.asset(
-                    items[index],
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              separatorBuilder: (BuildContext context, int index) =>
-              const SizedBox(width: 50),
-            ),
             ),
           ),
-          SizedBox(
-            height: 90.h + 20,
-            child:
-          )
+          SizedBox(height: 90.h + 20, child: ListView.separated(
+            padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20),
+            scrollDirection: Axis.horizontal,
+            itemCount: items.length,
+            itemBuilder: (context, index) => Card(
+              shape: RoundedRectangleBorder(
+                  side:
+                  const BorderSide(color: AppColors.darkYellow, width: 2),
+                  borderRadius: BorderRadius.circular(15)),
+              clipBehavior: Clip.hardEdge,
+              elevation: 10,
+              child: SizedBox(
+                height: 90.h,
+                width: 145.w,
+                child: Image.asset(
+                  items[index],
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            separatorBuilder: (BuildContext context, int index) =>
+            const SizedBox(width: 50),
+          ),)
         ],
       ),
     );

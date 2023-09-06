@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
             primaryColor: AppColors.primary,
             // textfield prefix icon color
             primarySwatch: AppColors.primarySwatch,
-            fontFamily: "FZ",
+            fontFamily: "FZQKBYSJW",
           ),
           navigatorObservers: [Statusbarz.instance.observer],
           initialBinding:

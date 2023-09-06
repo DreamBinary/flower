@@ -69,12 +69,14 @@ class MyDialog extends StatefulWidget {
   final String title;
   final Widget child;
   final String bgPath;
+  final VoidCallback? onNextPage;
 
   const MyDialog({
     super.key,
     required this.title,
     required this.bgPath,
     required this.child,
+    this.onNextPage,
   });
 
   @override
@@ -108,7 +110,13 @@ class _MyDialogState extends State<MyDialog> {
               Expanded(
                 child: widget.child,
               ),
-              const NextPageRow(size: 15)
+              NextPageRow(
+                size: 15,
+                onPressed: () => {
+                  if (widget.onNextPage != null)
+                    {widget.onNextPage!(), setState(() {})}
+                },
+              )
             ],
           ),
         ),

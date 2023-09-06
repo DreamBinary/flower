@@ -8,6 +8,7 @@ import 'package:flower/app/utils/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../component/mydialog.dart';
 import 'work_bench_logic.dart';
 
 class WorkBenchPage extends StatefulWidget {
@@ -63,8 +64,19 @@ class _WorkBenchPageState extends State<WorkBenchPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
                   child: BorderButton(
-                    onPressed: () {
-                      Get.toNamed(Routes.works);
+                    onPressed: () => {
+                      showDialog(
+                        context: context,
+                        builder: (context) => MyDialog(
+                          title: AppString.works,
+                          bgPath: "assets/images/bg_dialog0.png",
+                          child: LayoutBuilder(
+                            builder: (_, constraints) {
+                              return Image.asset("assets/images/work.png");
+                            },
+                          ),
+                        ),
+                      ),
                     },
                     child: Text(
                       AppString.works,

@@ -54,7 +54,6 @@ dependencies:
   flutter_keyboard_visibility: ^5.3.0
   auto_animated: ^3.1.0
   animations: ^2.0.5
-  panorama: ^0.4.1\
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -88,10 +87,21 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/bottom0.png
+    - assets/images/bottom1.png
+    - assets/images/bottom2.png
+    - assets/images/bottom3.png
+    - assets/images/bottom4.png
+    - assets/images/flower.png
+    - assets/images/flower3.png
+    - assets/images/flower4.png
+    - assets/images/flower5.png
+    - assets/images/member.png
+    - assets/images/work.png
     - assets/video/
 
   fonts:
-    - family: FZ
+    - family: FZQKBYSJW
       fonts:
         - asset: assets/fonts/FZQKBYSJW.TTF
 
