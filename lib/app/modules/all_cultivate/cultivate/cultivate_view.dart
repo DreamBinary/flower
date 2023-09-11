@@ -504,17 +504,19 @@ class RainWaterItem extends StatelessWidget {
                       shape: BoxShape.circle),
                 ),
               ),
-              DefaultTextStyle(
-                style: AppTS.fontSize18.copyWith(color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("花名 : " + name, maxLines: 1),
-                    Text("生长进度 : " + progress, maxLines: 1),
-                    Text("当前状态 : " + state, maxLines: 1),
-                  ],
+              Expanded(
+                child: DefaultTextStyle(
+                  style: AppTS.fontSize16.copyWith(color: Colors.white),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("花名 : " + name, maxLines: 1),
+                      Text("生长进度 : " + progress, maxLines: 1),
+                      Text("当前状态 : " + state, maxLines: 1),
+                    ],
+                  ).paddingOnly(left: 8),
                 ),
-              ),
+              )
             ],
           ),
         ),

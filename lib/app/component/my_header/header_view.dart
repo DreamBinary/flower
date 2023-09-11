@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'header_logic.dart';
-
+import 'package:badges/badges.dart' as bd;
 class HeaderComponent extends StatefulWidget {
   final Widget? child;
   final bool showAdd;
@@ -38,7 +38,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
       onTap: () {
         Get.to(ImagePreview(_child.image));
       },
-      child: Badge(
+      child: bd.Badge(
         badgeContent: GestureDetector(
           onTap: _showChoice,
           child: const Icon(Icons.add),

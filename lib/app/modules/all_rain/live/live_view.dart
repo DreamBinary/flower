@@ -6,7 +6,7 @@ import 'package:flower/app/theme/app_string.dart';
 import 'package:flower/app/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:badges/badges.dart' as bd;
 import 'live_logic.dart';
 
 class LivePage extends StatefulWidget {
@@ -200,7 +200,7 @@ class LiveItem extends StatelessWidget {
           end: Offset.zero,
         ).animate(animation),
         child: LayoutBuilder(
-          builder: (_, constraint) => Badge(
+          builder: (_, constraint) => bd.Badge(
             badgeColor: AppColors.darkYellow,
             shape: BadgeShape.square,
             borderRadius: BorderRadius.circular(20),
