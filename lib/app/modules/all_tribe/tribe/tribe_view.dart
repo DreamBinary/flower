@@ -1,8 +1,6 @@
-import 'package:flower/app/component/image_name_show.dart';
 import 'package:flower/app/component/mydialog.dart';
 import 'package:flower/app/component/mytopbar.dart';
 import 'package:flower/app/data/entity/TribeInfo.dart';
-import 'package:flower/app/data/net/url.dart';
 import 'package:flower/app/theme/app_colors.dart';
 import 'package:flower/app/theme/app_string.dart';
 import 'package:flower/app/theme/app_text_theme.dart';
@@ -228,7 +226,10 @@ class ExistTribe extends StatelessWidget {
                   )
                 ],
               ),
-              Image.asset("assets/images/member.png", fit: BoxFit.fill,)
+              Image.asset(
+                "assets/images/member.png",
+                fit: BoxFit.fill,
+              )
 
               // LayoutBuilder(
               //   builder: (_, constraints) {

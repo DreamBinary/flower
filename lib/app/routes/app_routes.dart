@@ -18,6 +18,7 @@ abstract class Routes {
   // mine
   static const mine = "/mine";
   static const settings = "/settings";
+
   // static const changeInfo = "/changeInfo";
 
   // rain
@@ -31,7 +32,6 @@ abstract class Routes {
   static const pointExchange = "/pointExchange";
   static const teach = "/teach";
   static const travel = "/travel";
-
 
   static const cultivate = "/cultivate";
   static const village = "/village";

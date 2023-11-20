@@ -98,7 +98,7 @@ class _VideoItemState extends State<VideoItem> {
               children: [
                 IgnorePointer(child: Chewie(controller: _chewieCtrl)),
                 BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 50, sigmaY:100),
+                  filter: ImageFilter.blur(sigmaX: 50, sigmaY: 100),
                   child: Chewie(controller: _chewieCtrl),
                 )
               ],

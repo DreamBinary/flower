@@ -48,36 +48,38 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return StatusbarzCapturer(
-            child: GetMaterialApp(
-          // title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            backgroundColor: AppColors.background,
-            primaryColor: AppColors.primary,
-            // textfield prefix icon color
-            primarySwatch: AppColors.primarySwatch,
-            fontFamily: "FZQKBYSJW",
-          ),
-          navigatorObservers: [Statusbarz.instance.observer],
-          initialBinding:
-              isIntro ? (isLogin ? RouteBinding() : LoginBinding()) : null,
-          initialRoute: isIntro
-              ? (isLogin ? Routes.routePage : Routes.login)
-              : Routes.intro,
-          getPages: AppPages.pages,
-
-          builder: (context, child) {
-            return Scaffold(
-              body: GestureDetector(
-                onTap: () {
-                  KeyboardUtils.hideKeyboard(context);
-                },
-                child: child,
+          child: GetMaterialApp(
+            // title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primaryColor: AppColors.primary,
+              fontFamily: "FZQKBYSJW",
+              colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: AppColors.primarySwatch,
+                backgroundColor: AppColors.background,
               ),
-            );
-          },
-          home: child,
-        ));
+            ),
+            navigatorObservers: [Statusbarz.instance.observer],
+            initialBinding:
+                isIntro ? (isLogin ? RouteBinding() : LoginBinding()) : null,
+            initialRoute: isIntro
+                ? (isLogin ? Routes.routePage : Routes.login)
+                : Routes.intro,
+            getPages: AppPages.pages,
+
+            builder: (context, child) {
+              return Scaffold(
+                body: GestureDetector(
+                  onTap: () {
+                    KeyboardUtils.hideKeyboard(context);
+                  },
+                  child: child,
+                ),
+              );
+            },
+            home: child,
+          ),
+        );
       },
     );
   }

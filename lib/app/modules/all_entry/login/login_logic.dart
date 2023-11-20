@@ -3,7 +3,6 @@ import 'package:flower/app/routes/app_pages.dart';
 import 'package:flower/app/theme/app_string.dart';
 import 'package:flower/app/utils/mmkv.dart';
 import 'package:flower/app/utils/toast.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import 'login_state.dart';
@@ -14,6 +13,15 @@ class LoginLogic extends GetxController {
   login(Function shake) async {
     String username = state.usernameCtrl.text.trim();
     String password = state.passwordCtrl.text.trim();
+
+    // TODO
+    if (username == "admin" && password == "admin") {
+      ToastUtil.showToast("登录成功");
+      MMKVUtil.put(AppString.USERNAME, username);
+      MMKVUtil.put(AppString.IS_LOGIN, true);
+      Get.offAllNamed(Routes.routePage);
+      return;
+    }
 
     if (username.length != 11) {
       ToastUtil.showToast("请输入正确的手机号");

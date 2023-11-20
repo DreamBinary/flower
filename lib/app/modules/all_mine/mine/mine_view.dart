@@ -90,7 +90,8 @@ class _MinePageState extends State<MinePage> {
                                 height: 48.h,
                                 width: 118.w,
                                 child: Text(AppString.myInfo,
-                                    style: AppTS.fontSize22.copyWith(color: Color(0xff743C4B))),
+                                    style: AppTS.fontSize22
+                                        .copyWith(color: Color(0xff743C4B))),
                               ),
                             ],
                           ),

@@ -6,7 +6,5 @@ class RainLogic extends GetxController {
   final RainState state = RainState();
 
   @override
-  void onReady() {
-
-  }
+  void onReady() {}
 }

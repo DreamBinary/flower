@@ -25,8 +25,7 @@ class _UsePageState extends State<UsePage> {
           padding: const EdgeInsets.all(16.0),
           child: Text.rich(
             TextSpan(
-                text:
-                    "欢迎您使用种花家，以下是使用条款内容，请仔细阅读。\n",
+                text: "欢迎您使用种花家，以下是使用条款内容，请仔细阅读。\n",
                 style: AppTS.textTitle,
                 children: [
                   TextSpan(text: "一、", children: [

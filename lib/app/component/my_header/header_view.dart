@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as bd;
 import 'package:flower/app/component/image_preview.dart';
 import 'package:flower/app/theme/app_colors.dart';
 import 'package:flower/app/theme/app_string.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'header_logic.dart';
-import 'package:badges/badges.dart' as bd;
+
 class HeaderComponent extends StatefulWidget {
   final Widget? child;
   final bool showAdd;

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flower/app/component/my_header/crop.dart';
 import 'package:flower/app/data/net/api_user.dart';
 import 'package:flower/app/utils/toast.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class HeaderLogic extends GetxController {
   Future<Image?> getCamera() async {
     final image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image != null) {
-      return await crop(image);
+      return Image.file(File(image.path));
     } else {
       ToastUtil.showToast("无照片");
       return null;
@@ -27,19 +26,19 @@ class HeaderLogic extends GetxController {
   Future<Image?> getGallery() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
-      return await crop(image);
+      return Image.file(File(image.path));
     } else {
       ToastUtil.showToast("无照片");
       return null;
     }
   }
 
-  Future<Image> crop(XFile xFile) async {
-    Uint8List bytes =
-        await Get.to(() => CropHeader(FileImage(File(xFile.path))));
-    getPath(bytes);
-    return Image.memory(bytes);
-  }
+  // Future<Image> crop(XFile xFile) async {
+  //   Uint8List bytes =
+  //       await Get.to(() => CropHeader(FileImage(File(xFile.path))));
+  //   getPath(bytes);
+  //   return Image.memory(bytes);
+  // }
 
   Future<void> getPath(Uint8List bytes) async {
     var tempDir = await getTemporaryDirectory();

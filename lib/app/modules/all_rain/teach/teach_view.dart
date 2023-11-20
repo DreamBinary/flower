@@ -164,7 +164,7 @@ class TeachInfo extends StatelessWidget {
                 child: ElevatedButton(
                   style: const ButtonStyle(
                     backgroundColor:
-                    MaterialStatePropertyAll(AppColors.darkRed0),
+                        MaterialStatePropertyAll(AppColors.darkRed0),
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)))),
                     fixedSize: MaterialStatePropertyAll(

@@ -6,8 +6,6 @@ import 'package:flower/app/modules/all_entry/private.dart';
 import 'package:flower/app/modules/all_entry/register/register_binding.dart';
 import 'package:flower/app/modules/all_entry/register/register_view.dart';
 import 'package:flower/app/modules/all_entry/use.dart';
-import 'package:flower/app/modules/all_mine/change_info/change_info_binding.dart';
-import 'package:flower/app/modules/all_mine/change_info/change_info_view.dart';
 import 'package:flower/app/modules/all_mine/mine/mine_view.dart';
 import 'package:flower/app/modules/all_mine/setting/setting_binding.dart';
 import 'package:flower/app/modules/all_mine/setting/setting_view.dart';
@@ -107,10 +105,9 @@ abstract class AppPages {
       // binding: VillageBinding()
     ),
     GetPage(
-      name: Routes.villageDetail,
-      page: () => VillageDetailPage(),
-      binding: VillageDetailBinding()
-    ),
+        name: Routes.villageDetail,
+        page: () => VillageDetailPage(),
+        binding: VillageDetailBinding()),
     GetPage(name: Routes.tribe, page: () => TribePage()),
     GetPage(
         name: Routes.settings,

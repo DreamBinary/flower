@@ -1,12 +1,13 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as bd;
 import 'package:flower/app/component/mytopbar.dart';
 import 'package:flower/app/theme/app_colors.dart';
 import 'package:flower/app/theme/app_string.dart';
 import 'package:flower/app/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:badges/badges.dart' as bd;
+
 import 'live_logic.dart';
 
 class LivePage extends StatefulWidget {
