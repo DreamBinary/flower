@@ -29,13 +29,14 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    var json = jsonDecode(MMKVUtil.getString(AppString.USER_DATA));
-    nickname = json["nickname"];
-    try {
-      url = json["avatar"];
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    // TODO
+    // var json = jsonDecode(MMKVUtil.getString(AppString.USER_DATA));
+    // nickname = json["nickname"];
+    // try {
+    //   url = json["avatar"];
+    // } catch (e) {
+    //   debugPrint(e.toString());
+    // }
   }
 
   @override
@@ -49,29 +50,31 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       child: SafeArea(
-          child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Stack(
-                  alignment: Alignment.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Stack(
+                    alignment: Alignment.center,
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned(
                         left: 95,
                         child: Container(
                           width: 160.w,
                           height: 50,
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(50),
-                                  bottomRight: Radius.circular(50)),
-                              color: AppColors.homeButton),
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomRight: Radius.circular(50),
+                            ),
+                            color: AppColors.homeButton,
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15),
                             child: Text(
@@ -79,53 +82,59 @@ class _HomePageState extends State<HomePage> {
                               style: AppTS.fontSize20,
                             ),
                           ),
-                        )),
-                    HeaderComponent(
-                      child: FadeInImage.assetNetwork(
-                        placeholder: "assets/images/icon.png",
-                        image: Url.avatar + url,
-                        fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 75,
-                  width: 75,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/btn_rain_value.png")),
+                      HeaderComponent(
+                        child: FadeInImage.assetNetwork(
+                          placeholder: "assets/images/icon.png",
+                          image: Url.avatar + url,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
                   ),
-                  child: RawMaterialButton(
-                    onPressed: () => {
-                      precacheImage(
-                          const AssetImage("assets/images/rain.png"), context),
-                      Get.toNamed(Routes.rain)
-                    },
-                    shape: const CircleBorder(),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Positioned(
+                  Container(
+                    height: 75,
+                    width: 75,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image:
+                              AssetImage("assets/images/btn_rain_value.png")),
+                    ),
+                    child: RawMaterialButton(
+                      onPressed: () => {
+                        precacheImage(
+                            const AssetImage("assets/images/rain.png"),
+                            context),
+                        Get.toNamed(Routes.rain)
+                      },
+                      shape: const CircleBorder(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned(
                             top: 15,
                             right: 15,
                             child: Text(
                               "50",
                               style: AppTS.fontSize20Bold,
-                            )),
-                        Positioned(
+                            ),
+                          ),
+                          Positioned(
                             bottom: 12,
-                            child: Text("雨露值", style: AppTS.fontSize16))
-                      ],
+                            child: Text("雨露值", style: AppTS.fontSize16),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 

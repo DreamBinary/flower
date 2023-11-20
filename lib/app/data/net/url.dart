@@ -20,7 +20,6 @@ class Url {
   // teach
   static String teach = "/teach";
 
-  // 用户已经预约的
   static String userTeachInfo = "/teach/getUserTeach";
 
   // product

@@ -55,22 +55,23 @@ class _TribePageState extends State<TribePage> {
           ),
         ),
       ),
-      body: FutureBuilder(
-        future: logic.getTribeInfo(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data != null) {
-              return ExistTribe(tribeInfo: snapshot.data!);
-            } else {
-              return NoTribe(
-                onPressed: () {},
-              );
-            }
-          } else {
-            return const Center(child: CircularProgressIndicator());
-          }
-        },
-      ),
+      body: NoTribe(onPressed: () {}),
+      // body: FutureBuilder(
+      //   future: logic.getTribeInfo(),
+      //   builder: (context, snapshot) {
+      //     if (snapshot.hasData) {
+      //       if (snapshot.data != null) {
+      //         return ExistTribe(tribeInfo: snapshot.data!);
+      //       } else {
+      //         return NoTribe(
+      //           onPressed: () {},
+      //         );
+      //       }
+      //     } else {
+      //       return const Center(child: CircularProgressIndicator());
+      //     }
+      //   },
+      // ),
     );
   }
 
